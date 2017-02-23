@@ -110,6 +110,6 @@ levels(activity3$days)[!weekday_index] <- "weekend"
 ```{r plot2, results="hide"}
 activity3_grouped <- group_by(activity3, interval, days)
 activity3_summary <- summarise(activity3_grouped, average = mean(steps))
-h<-qplot(interval, average, data = activity3_summary, facets = .~days, geom = "line")
+ h<-qplot(interval, average, data = activity3_summary, geom = "line") + facet_wrap( ~ days, nrow = 2)
 print(h)
 ```
